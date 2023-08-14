@@ -1,3 +1,5 @@
+# flatpak-builder --force-clean build-dir org.freedesktop.Sdk.Extension.ocaml.yaml
+# flatpak-builder --user --install --force-clean build-dir org.freedesktop.Sdk.Extension.ocaml.yaml 
 id: org.freedesktop.Sdk.Extension.ocaml
 branch: '22.08'
 runtime: org.freedesktop.Sdk
@@ -9,32 +11,33 @@ appstream-compose: false
 modules:
   - name: opam
     buildsystem: simple
+    build-options:
+      build-args:
+        - --share=network
     sources:
-      - type: archive
+      - type: file
         only-arches:
           - x86_64
         url: https://github.com/ocaml/opam/releases/download/2.1.5/opam-2.1.5-x86_64-linux
+        sha256: f3681b8c2416340724317dfaa2143563af7b325eae4750eb0ee6a279ef4c4b61
     build-commands:
-      - export OPAMROOT=/usr/lib/sdk/opam
-      - ./opam-2.1.5-x86_64-linux init --disable-sandboxing
-      - ./opam-2.1.5-x86_64-linux install -y dune dune-release merlin ocaml-lsp-server ocamlformat ocp-indent utop
-      - mv cp opam-2.1.5-x86_64-linux $OPAMROOT/default/bin
-      - eval $(opam env)
+      - chmod +x opam-2.1.5-x86_64-linux
+      - export OPAMROOT=/usr/lib/sdk/ocaml && ./opam-2.1.5-x86_64-linux init --disable-sandboxing && eval $(./opam-2.1.5-x86_64-linux env) && ./opam-2.1.5-x86_64-linux install -y dune dune-release merlin ocaml-lsp-server ocamlformat ocp-indent utop && mv opam-2.1.5-x86_64-linux $OPAMROOT/default/bin
 
   - name: scripts
     sources:
       - type: script
         commands:
-          - export OPAMROOT=/usr/lib/sdk/opam
-          - export PATH=$PATH:/usr/lib/sdk/opam/default/bin
-          - export OPAM_SWITCH_PREFIX='/usr/lib/sdk/opam/default'
-          - export CAML_LD_LIBRARY_PATH='/usr/lib/sdk/opam/default/lib/stublibs:/usr/lib/sdk/opam/default/lib/ocaml/stublibs:/usr/lib/sdk/opam/default/lib/ocaml'
-          - export OCAML_TOPLEVEL_PATH='/usr/lib/sdk/opam/default/lib/toplevel'
-          - export MANPATH=':/usr/lib/sdk/opam/default/man'
+          - export OPAMROOT=/usr/lib/sdk/ocaml
+          - export PATH=$PATH:/usr/lib/sdk/ocaml/default/bin
+          - export OPAM_SWITCH_PREFIX='/usr/lib/sdk/ocaml/default'
+          - export CAML_LD_LIBRARY_PATH='/usr/lib/sdk/ocaml/default/lib/stublibs:/usr/lib/sdk/ocaml/default/lib/ocaml/stublibs:/usr/lib/sdk/ocaml/default/lib/ocaml'
+          - export OCAML_TOPLEVEL_PATH='/usr/lib/sdk/ocaml/default/lib/toplevel'
+          - export MANPATH=':/usr/lib/sdk/ocaml/default/man'
         dest-filename: enable.sh
     buildsystem: simple
     build-commands:
-      - cp enable.sh /usr/lib/sdk/opam/
+      - cp enable.sh /usr/lib/sdk/ocaml/
 
   - name: appdata
     buildsystem: simple
