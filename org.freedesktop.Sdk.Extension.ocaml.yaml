@@ -21,8 +21,13 @@ modules:
         url: https://github.com/ocaml/opam/releases/download/2.1.5/opam-2.1.5-x86_64-linux
         sha256: f3681b8c2416340724317dfaa2143563af7b325eae4750eb0ee6a279ef4c4b61
     build-commands:
-      - chmod +x opam-2.1.5-x86_64-linux
-      - export OPAMROOT=/usr/lib/sdk/ocaml && ./opam-2.1.5-x86_64-linux init --disable-sandboxing && eval $(./opam-2.1.5-x86_64-linux env) && ./opam-2.1.5-x86_64-linux install -y dune dune-release merlin ocaml-lsp-server ocamlformat ocp-indent utop && mv opam-2.1.5-x86_64-linux $OPAMROOT/default/bin
+    - >
+        chmod +x opam-2.1.5-x86_64-linux &&
+        export OPAMROOT=/usr/lib/sdk/ocaml &&
+        ./opam-2.1.5-x86_64-linux init --disable-sandboxing &&
+        eval $(./opam-2.1.5-x86_64-linux env) &&
+        ./opam-2.1.5-x86_64-linux install -y dune dune-release merlin ocaml-lsp-server ocamlformat ocp-indent utop &&
+        mv opam-2.1.5-x86_64-linux $OPAMROOT/default/bin
 
   - name: scripts
     sources:
