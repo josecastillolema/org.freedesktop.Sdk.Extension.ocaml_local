@@ -18,7 +18,7 @@ jobs:
       options: --privileged
     steps:
     - uses: actions/checkout@v3
-    - uses: flatpak/flatpak-github-actions/flatpak-builder@v6.1
+    - uses: flatpak/flatpak-github-actions/flatpak-builder@master
       with:
         bundle: ocaml.flatpak
         manifest-path: org.freedesktop.Sdk.Extension.ocaml.yaml
