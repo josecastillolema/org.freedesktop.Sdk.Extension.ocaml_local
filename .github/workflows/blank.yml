@@ -1,8 +1,14 @@
+name: CI
+
 on:
   push:
-    branches: [main]
+    branches: [ "*" ]
+    paths-ignore:
+    - '**.md'
   pull_request:
-name: CI
+
+  workflow_dispatch:
+
 jobs:
   flatpak:
     name: "Flatpak"
