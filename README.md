@@ -4,7 +4,7 @@ This extension contains various components of the [OCaml](https://ocaml.org/) st
 
 ## Debugging
 
-In order to use this extension in flatpak SDK environment you may add all provided tools in your PATH by executing first:
+In order to use this extension in a flatpak SDK environment you may add all provided tools in your PATH by executing first:
 ```
 $ source /usr/lib/sdk/ocaml/enable.sh
 ```
