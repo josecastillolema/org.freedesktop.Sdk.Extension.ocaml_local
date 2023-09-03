@@ -9,6 +9,5 @@
   <url type="bugtracker">https://github.com/ocaml/ocaml/issues</url>
    <releases>
         <release version="5.0.0" date="2022-12-16" />
-        <release version="4.14.0" date="2022-03-28" />
     </releases>
 </component>
