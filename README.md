@@ -16,7 +16,7 @@ $ sudo flatpak override --env=FLATPAK_ENABLE_SDK_EXT=ocaml com.visualstudio.code
 $ sudo flatpak override --env=FLATPAK_ENABLE_SDK_EXT=ocaml org.gnu.emacs
 ```
 
-or just use FLATPAK_ENABLE_SDK_EXT=* to load every SDK available in your system:
+or just use `FLATPAK_ENABLE_SDK_EXT=*` to load every SDK available in your system:
 ```
 $ sudo flatpak override --env=FLATPAK_ENABLE_SDK_EXT=* com.visualstudio.code
 $ sudo flatpak override --env=FLATPAK_ENABLE_SDK_EXT=* org.gnu.emacs
