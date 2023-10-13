@@ -51,7 +51,3 @@ The OCaml toplevel, version 5.1.0
 
 $ opam install -y PKG  
 ```
-
-## Source files generation
-
-[flatpak-opam-generator](https://github.com/josecastillolema/flatpak-opam-generator) was used to generate the source files.
