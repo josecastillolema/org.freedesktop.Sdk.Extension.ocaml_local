@@ -51,3 +51,13 @@ The OCaml toplevel, version 5.1.0
 
 $ opam install -y PKG  
 ```
+
+Alternativelly, you can inicialize a new opam environment:
+```
+$ opam init --disable-sandboxing --root $XDG_DATA_HOME/ocaml
+$ eval $(opam env --root=$XDG_DATA_HOME/ocaml --switch=default --set-root --set-switch)
+
+$ opam switch
+#  switch   compiler     description
+→  default  ocaml.5.1.0  default
+```
