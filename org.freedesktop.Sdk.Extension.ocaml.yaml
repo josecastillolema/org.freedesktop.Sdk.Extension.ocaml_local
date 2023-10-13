@@ -9,6 +9,17 @@ runtime-version: '22.08'
 separate-locales: false
 appstream-compose: false
 modules:
+  - name: bwrap
+    buildsystem: autotools
+    build-options:
+      prefix: ${FLATPAK_DEST}
+    sources:
+      - type: git
+        branch: main
+        url: https://github.com/containers/bubblewrap
+    post-install:
+      - bwrap --version 
+
   - name: opam
     buildsystem: simple
     build-options:
