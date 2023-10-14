@@ -4,6 +4,9 @@ This extension contains various components of the [OCaml](https://ocaml.org/) st
 
 The OCaml Platform Tools, which includes the build system Dune, complete the OCaml development environment and provide a nice out of the box developer experience (dune dune-release merlin ocaml-lsp-server ocamlformat ocp-indent utop).
 
+The difference between this repo and [org.freedesktop.Sdk.Extension.ocaml](https://github.com/josecastillolema/org.freedesktop.Sdk.Extension.ocaml) is that this repo [shares the network during the build phase](https://github.com/josecastillolema/org.freedesktop.Sdk.Extension.ocaml_local/blob/master/org.freedesktop.Sdk.Extension.ocaml.yaml#L58) which is not allowed following the [Flathub guidelines](https://docs.flathub.org/docs/for-app-authors/requirements#stable-releases-reproducible-builds).
+
+
 ## Debugging
 
 In order to use this extension in a Flatpak SDK environment you may add all provided tools in your PATH by executing first:
